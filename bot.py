@@ -50,7 +50,7 @@ async def play(ctx, url_: str):
 
     ydl_opts = {
 
-        'format': 'bestaudio[ext=mp3]/best[ext=mkv]/best' ,
+        'format': 'bestaudio[ext=mp3]/best[ext=mp4]/best[ext=mkv]/best' ,
 
         'postprosessors': [{
 
