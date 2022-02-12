@@ -65,8 +65,11 @@ async def play(ctx, url_: str):
     }
 
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        await ctx.send("Preparing to play")
 
         ydl.download([url_])
+        
+        await ctx.send("Music is about to play")
 
     for file in os.listdir("./"):
         if file.endswith(".mp4"):
@@ -75,8 +78,8 @@ async def play(ctx, url_: str):
             -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 \
             audio.mp3"
             os.system(exe)
-           
-
+            await ctx.send("Music Loading............")
+    await ctx.send("Playing......")
     voice.play(discord.FFmpegPCMAudio("audio.mp3"))
 
 
