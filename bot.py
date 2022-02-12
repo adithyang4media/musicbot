@@ -92,7 +92,8 @@ async def leave(ctx):
 
     if voice.is_connected():
 
-        await voice.didconnect()
+        await voice.disconnect()
+        await ctx.send("Disconnected")
 
     else:
 
