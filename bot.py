@@ -10,7 +10,9 @@ import os
 
 client = commands.Bot(command_prefix="!")
 
-
+@client.event
+async def on_ready():
+    print('DM Your confessions and the message will be anonymous')
 
 @client.command()
 
