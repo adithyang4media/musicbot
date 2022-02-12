@@ -68,7 +68,7 @@ async def play(ctx, url_: str):
 
         ydl.download([url_])
 
-    for file in os.listdir("./"):
+    if file in os.listdir("./"):
 
        
 
