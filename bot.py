@@ -50,7 +50,7 @@ async def play(ctx, url_: str):
 
     ydl_opts = {
 
-        'format': 'bestaudio[ext=mp3]/best[ext=mkv]/best' ,
+        'format': 'bestaudio[ext=mp3]/best[ext=mp4]/best[ext=m4a]/best[ext=mkv]/best' ,
 
         'postprosessors': [{
 
@@ -69,7 +69,7 @@ async def play(ctx, url_: str):
         ydl.download([url_])
 
     for file in os.listdir("./"):
-        if file.endswith(".mp4")
+        if file.endswith(".mp4"):
        
            os.rename(file, "song.mp3")
 
