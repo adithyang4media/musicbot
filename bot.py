@@ -15,8 +15,8 @@ client = commands.Bot(command_prefix='!')
 @client.command()
 
 async def play(ctx, url_: str):
-    channel = ctx.message.author.voice.voice_channel
-    await client.join_voice_channel(channel)
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    await client.join_voice_channel(voice)
     server = ctx.message.server
     voice_client = client.voice_client_in(server)
     player = await voice_client.create_ytdl_player(url)
