@@ -69,15 +69,9 @@ async def play(ctx, url_: str):
         ydl.download([url_])
 
     for file in os.listdir("./"):
-
+        if file.endswith(".mp4)
        
-
-        exe="yes | ffmpeg -i " + file +" -vn \
-       -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 \
-        song.mp3"
-        
-        os.system(exe)
-        await ctx.send("Playing...")
+           os.rename(file, "song.mp3")
 
     voice.play(discord.FFmpegPCMAudio("song.mp3"))
 
@@ -137,4 +131,9 @@ async def stop(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
 
     voice.stop()
+
+
+
+
+
 client.run(os.environ['token'])
