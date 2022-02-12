@@ -30,13 +30,15 @@ async def play(ctx, url_: str):
 
         return
 
-
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    print('state')
+    print(voice.is_connected())
 
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='General')
 
     await voiceChannel.connect()
 
-    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    
 
 
 
