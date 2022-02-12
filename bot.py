@@ -50,7 +50,7 @@ async def play(ctx, url_: str):
 
     ydl_opts = {
 
-        'format': 'bestaudio[ext=mp3]/best' ,
+        'format': 'bestaudio[ext=mp3]' ,
 
         'postprosessors': [{
 
@@ -70,9 +70,9 @@ async def play(ctx, url_: str):
 
     for file in os.listdir("./"):
 
-        if file.endswith(".webm"):
+       
 
-            os.rename(file, "song.mp3")
+        os.rename(file, "song.mp3")
 
     voice.play(discord.FFmpegPCMAudio("song.mp3"))
 
