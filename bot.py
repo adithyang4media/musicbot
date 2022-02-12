@@ -8,17 +8,16 @@ import os
 
 
 
-client = commands.Bot(command_prefix="!")
 
-@client.event
-async def on_ready():
-    print('DM Your confessions and the message will be anonymous')
+client = commands.Bot(command_prefix='!')
+
+
 
 @client.command()
 
 async def play(ctx, url_: str):
 
-    song_there - os_path.isfile("song.mp3")
+    song_there = os.path.isfile("song.mp3")
 
     try:
 
@@ -36,7 +35,7 @@ async def play(ctx, url_: str):
 
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='General')
 
-    await voiceChannel.connect
+    await voiceChannel.connect()
 
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
 
@@ -62,11 +61,11 @@ async def play(ctx, url_: str):
 
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
 
-        ydl.download([url])
+        ydl.download([url_])
 
     for file in os.listdir("./"):
 
-        if fileendswith(".mp3"):
+        if file.endswith(".webm"):
 
             os.rename(file, "song.mp3")
 
@@ -132,4 +131,5 @@ async def stop(ctx):
 
 
 
-client.run(os.environ['token'])
+
+client.run('OTQxNzU3NTM4MDA3OTQxMTcx.YgamDg.LZeg38LIg6ygKprlosK5uK5oKKs')
