@@ -69,7 +69,12 @@ async def play(ctx, url_: str):
         ydl.download([url_])
 
     for file in os.listdir("./"):
-        voice.play(discord.FFmpegPCMAudio(file))
+
+        if file.endswith(".webm"):
+
+            os.rename(file, "song.mp3")
+
+    voice.play(discord.FFmpegPCMAudio("song.mp3"))
 
 
 
