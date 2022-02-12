@@ -70,10 +70,14 @@ async def play(ctx, url_: str):
 
     for file in os.listdir("./"):
         if file.endswith(".mp4"):
-       
-           os.rename(file, "song.mp3")
+            os.rename(file, "vid.mp4")
+            exe="ffmpeg -i vid.mp4 -vn \
+            -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 \
+            audio.mp3"
+            os.system(exe)
+           
 
-    voice.play(discord.FFmpegPCMAudio("song.mp3"))
+    voice.play(discord.FFmpegPCMAudio("audio.mp3"))
 
 
 
