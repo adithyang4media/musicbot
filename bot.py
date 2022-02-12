@@ -69,7 +69,7 @@ async def play(ctx, url_: str):
         ydl.download([url_])
 
     for file in os.listdir("./"):
-        if file.endswith(".mp4)
+        if file.endswith(".mp4")
        
            os.rename(file, "song.mp3")
 
