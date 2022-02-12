@@ -75,7 +75,7 @@ async def play(ctx, url_: str):
        
 
     exe="yes | ffmpeg -i " + file +" -vn \
-   -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 \
+    -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 \
     song.mp3"
     
     os.system(exe)
