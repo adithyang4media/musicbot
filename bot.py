@@ -72,7 +72,12 @@ async def play(ctx, url_: str):
 
        
 
-        os.rename(file, "song.mp3")
+        exe="yes | ffmpeg -i " + file +" -vn \
+       -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 \
+        song.mp3"
+        
+        os.system(exe)
+        await ctx.send("Playing...")
 
     voice.play(discord.FFmpegPCMAudio("song.mp3"))
 
