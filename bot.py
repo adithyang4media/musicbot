@@ -72,10 +72,11 @@ async def play(ctx, url_: str):
         if file.endswith(".mp4"):
             await ctx.send("Preparing to play")
             os.rename(file, "video.mp4")
+            print("file renamed")
        
 
     exe="yes | ffmpeg -i video.mp4 -vn \
-    -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 \
+   -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 \
     song.mp3"
     
     os.system(exe)
