@@ -68,16 +68,18 @@ async def play(ctx, url_: str):
 
         ydl.download([url_])
 
-    if file in os.listdir("./"):
+    for file in os.listdir("./"):
+    
+        await ctx.send("Preparing to play")
 
        
 
-        exe="yes | ffmpeg -i " + file +" -vn \
-       -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 \
-        song.mp3"
-        
-        os.system(exe)
-        await ctx.send("Playing...")
+    exe="yes | ffmpeg -i " + file +" -vn \
+   -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 \
+    song.mp3"
+    
+    os.system(exe)
+    await ctx.send("Playing...")
 
     voice.play(discord.FFmpegPCMAudio("song.mp3"))
 
@@ -142,4 +144,4 @@ async def stop(ctx):
 
 
 
-client.run(os.environ['token'])
+client.run('OTQxNzU3NTM4MDA3OTQxMTcx.YgamDg.Kh1QlC83Bo8nePfLjwKrmFFh1hg')
