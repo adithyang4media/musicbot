@@ -70,11 +70,9 @@ async def play(ctx, url_: str):
 
     for file in os.listdir("./"):
 
-        if file.endswith(".webm"):
+        
 
-            os.rename(file, "song.mp3")
-
-    voice.play(discord.FFmpegPCMAudio("song.mp3"))
+    voice.play(discord.FFmpegPCMAudio(file))
 
 
 
