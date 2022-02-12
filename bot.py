@@ -30,15 +30,18 @@ async def play(ctx, url_: str):
 
         return
 
-    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-    print('state')
-    print(voice.is_connected())
-
+   
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='General')
 
-    await voiceChannel.connect()
+    
 
     
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    if voice == None: # None being the default value if the bot isnt in a channel (which is why the is_connected() is returning errors)
+        await voiceChannel.connect()
+        await ctx.send(f"Joined **{voiceChannel}**")
+    else:
+        await ctx.send("I'm already connected!")
 
 
 
