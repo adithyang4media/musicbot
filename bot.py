@@ -69,9 +69,9 @@ async def play(ctx, url_: str):
         ydl.download([url_])
 
     for file in os.listdir("./"):
-    
-        await ctx.send("Preparing to play")
-        os.rename(file, "video.mp4")
+        if file.endswith(".mp4"):
+            await ctx.send("Preparing to play")
+            os.rename(file, "video.mp4")
        
 
     exe="yes | ffmpeg -i video.mp4 -vn \
