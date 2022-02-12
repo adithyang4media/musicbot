@@ -11,7 +11,7 @@ import os
 
 client = commands.Bot(command_prefix='!')
 
-
+discord.opus.load_opus()
 
 @client.command()
 
