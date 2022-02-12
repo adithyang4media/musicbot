@@ -69,10 +69,7 @@ async def play(ctx, url_: str):
         ydl.download([url_])
 
     for file in os.listdir("./"):
-
-        
-
-    voice.play(discord.FFmpegPCMAudio(file))
+        voice.play(discord.FFmpegPCMAudio(file))
 
 
 
