@@ -1,4 +1,4 @@
-import YouTube from pytube
+from pytube import YouTube 
 url="https://www.youtube.com/watch?v=8FAUEv_E_xQ"
 yt = YouTube(url)
 t = yt.streams.filter(only_audio=True)
