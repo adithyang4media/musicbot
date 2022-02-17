@@ -45,6 +45,11 @@ async def play(ctx, url_: str):
             os.system(exe)
             await ctx.send("Music Loading............")
     await ctx.send("Playing......")
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    if voice == None: # None being the default value if the bot isnt in a channel (which is why the is_connected() is returning errors)
+        await voiceChannel.connect()
+        await ctx.send(f"Joined **{voiceChannel}**")
+        voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
     voice.play(discord.FFmpegPCMAudio("audio.mp3"))
 @client.command()
 async def leave(ctx):
