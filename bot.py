@@ -16,13 +16,7 @@ async def play(ctx, url_: str):
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='General')
     
     
-    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-    if voice == None: # None being the default value if the bot isnt in a channel (which is why the is_connected() is returning errors)
-        await voiceChannel.connect()
-        await ctx.send(f"Joined **{voiceChannel}**")
-        voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-    else:
-        await ctx.send("I'm already connected!")
+    
     ydl_opts = {
         'format': 'bestaudio[ext=mp3]/best[ext=mp4]/best[ext=m4a]/best[ext=mkv]/best' ,
         'postprosessors': [{
@@ -44,12 +38,16 @@ async def play(ctx, url_: str):
             audio.mp3"
             os.system(exe)
             await ctx.send("Music Loading............")
-    await ctx.send("Playing......")
+            
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
     if voice == None: # None being the default value if the bot isnt in a channel (which is why the is_connected() is returning errors)
         await voiceChannel.connect()
         await ctx.send(f"Joined **{voiceChannel}**")
         voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    else:
+        await ctx.send("I'm already connected!")
+    await ctx.send("Playing......")
+    
     voice.play(discord.FFmpegPCMAudio("audio.mp3"))
 @client.command()
 async def leave(ctx):
