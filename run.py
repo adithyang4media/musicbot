@@ -45,6 +45,8 @@ async def play(ctx, url_: str):
     await ctx.send("Playing......")
     
     voice.play(discord.FFmpegPCMAudio("audio.mp3"))
+    user = discord.utils.get(client.users, name="USERNAME", discriminator="1234")
+    await ctx.send(f"This bot was made by {user.mention}")
 @client.command()
 async def leave(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
