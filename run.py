@@ -14,7 +14,7 @@ async def play(ctx, url_: str):
         await ctx.send("Wait for the audio to stop or use !stop command")
         return
    
-    voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='General')
+    voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='Music')
     
     
     
