@@ -43,7 +43,7 @@ async def play(ctx, url_: str):
     else:
         await ctx.send("I'm already connected!")
     user = discord.utils.get(client.users, name="adithyanspillai#1404")
-    await ctx.send("Playing......")
+    await ctx.send("Playing.......")
     
     voice.play(discord.FFmpegPCMAudio("audio.mp3"))
     
