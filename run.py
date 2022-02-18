@@ -56,7 +56,7 @@ async def leave(ctx):
 
         
         await voice.disconnect()
-        await ctx.send("Disconnected")
+        await ctx.send("Disconnected Use !play command to reconnect")
 
     else:
 
