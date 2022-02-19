@@ -15,6 +15,9 @@ async def play(ctx, url_: str):
         return
    
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='Music')
+    filen = voiceChannel.id
+    filename = filen + ".mp3"
+    fln = filen + ".mp3"
     
     
     
@@ -28,10 +31,10 @@ async def play(ctx, url_: str):
     await ctx.send("Music is about to play")
     for file in os.listdir("./"):
         if file.endswith(".mp4"):
-            os.rename(file, "vid.mp4")
-            exe="yes | ffmpeg -i vid.mp4 -vn \
+            os.rename(file, fln)
+            exe="yes | ffmpeg -i " + fln + " -vn \
             -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 \
-            audio.mp3"
+            " + filename
             os.system(exe)
             await ctx.send("Music Loading............")
             
