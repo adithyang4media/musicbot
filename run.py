@@ -86,6 +86,11 @@ async def stop(ctx):
     voice.stop()
     
 @client.command()
+async def replay(ctx):
+    await ctx.send("Playing.....")
+    voice.play(discord.FFmpegPCMAudio(filename))
+    
+@client.command()
 async def commands(ctx):
    await ctx.send("This Bot Was made by @adithyanspillai#1404 \n Bot Commands \n !play <youtube url> : Play a song \n !pause : Pause song \n !resume : Resume a paused song  \n !stop : Stop the current playing song \n !leave : Disconnect Bot From Voice Channel")
     
