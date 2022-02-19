@@ -8,7 +8,7 @@ client = commands.Bot(command_prefix='!')
 @client.event
 async def on_ready():
     print("Bot is now up")
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(client.guilds)} servers!"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Youtube")
 
 @client.command()
 async def play(ctx, url_: str):
@@ -105,4 +105,8 @@ async def replay(ctx):
 async def commands(ctx):
    await ctx.send("This Bot Was made by @adithyanspillai#1404 \n Bot Commands \n !play <youtube url> : Play a song \n !pause : Pause song \n !resume : Resume a paused song  \n !stop : Stop the current playing song \n !leave : Disconnect Bot From Voice Channel")
     
+@client.command()
+async def stats(ctx):
+   name = f"{len(client.guilds)} servers!"
+   
 client.run(os.environ['token'])
