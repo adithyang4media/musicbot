@@ -22,7 +22,7 @@ async def play(ctx, url_: str):
     
     
     
-   
+    await ctx.send("Searching...")
     yt = YouTube(url_)
     t = yt.streams.filter(only_audio=True)
     t[0].download('./')
@@ -39,7 +39,6 @@ async def play(ctx, url_: str):
             await ctx.send("Music Loading............")
             
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-    
     if voice == None: # None being the default value if the bot isnt in a channel (which is why the is_connected() is returning errors)
         await voiceChannel.connect()
         await ctx.send(f"Joined **{voiceChannel}**")
