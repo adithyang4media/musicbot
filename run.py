@@ -87,6 +87,7 @@ async def stop(ctx):
     
 @client.command()
 async def replay(ctx):
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
     await ctx.send("Playing.....")
     voice.play(discord.FFmpegPCMAudio(filename))
     
