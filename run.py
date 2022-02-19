@@ -22,7 +22,7 @@ async def play(ctx, url_: str):
     
     
     
-    await ctx.send("Searching...")
+   
     yt = YouTube(url_)
     t = yt.streams.filter(only_audio=True)
     t[0].download('./')
@@ -45,12 +45,12 @@ async def play(ctx, url_: str):
         voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
     else:
         await ctx.send("I'm already connected!")
-    
+    user = discord.utils.get(client.users, name="adithyanspillai#1404")
     await ctx.send("Playing.......")
     
     voice.play(discord.FFmpegPCMAudio(filename))
     
-   
+    await ctx.send(f"This bot was made by {user.mention} . Thanks for using this Bot . Have a Nice Day")
 @client.command()
 async def leave(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
