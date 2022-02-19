@@ -5,6 +5,12 @@ import os
 from pytube import YouTube
 client = commands.Bot(command_prefix='!')
 await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(client.guilds)} servers!"))
+
+@client.event
+async def on_ready():
+    print("Bot is now up")
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(client.guilds)} servers!"))
+
 @client.command()
 async def play(ctx, url_: str):
     song_there = os.path.isfile("song.mp3")
