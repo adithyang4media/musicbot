@@ -39,13 +39,14 @@ async def play(ctx, url_: str):
             await ctx.send("Music Loading............")
             
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    user_id = "913780712715485254"
     if voice == None: # None being the default value if the bot isnt in a channel (which is why the is_connected() is returning errors)
         await voiceChannel.connect()
         await ctx.send(f"Joined **{voiceChannel}**")
         voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
     else:
         await ctx.send("I'm already connected!")
-    user_id = "913780712715485254"
+    
     await ctx.send("Playing.......")
     
     voice.play(discord.FFmpegPCMAudio(filename))
