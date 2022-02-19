@@ -16,8 +16,8 @@ async def play(ctx, url_: str):
    
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='Music')
     filen = str(voiceChannel.id)
-    global filename = filen + ".mp3"
-    global fln = filen + ".mp3"
+    filename = filen + ".mp3"
+    fln = filen + ".mp3"
     
     
     
@@ -87,6 +87,10 @@ async def stop(ctx):
     
 @client.command()
 async def replay(ctx):
+    voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='Music')
+    filen = str(voiceChannel.id)
+    filename = filen + ".mp3"
+    fln = filen + ".mp3"
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
     await ctx.send("Playing.....")
     voice.play(discord.FFmpegPCMAudio(filename))
