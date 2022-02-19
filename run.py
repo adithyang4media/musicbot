@@ -50,7 +50,7 @@ async def play(ctx, url_: str):
     
     voice.play(discord.FFmpegPCMAudio(filename))
     user_id = "913780712715485254"
-    await ctx.send(f"This bot was made by <@{user_id}> . Thanks for using this Bot . Have a Nice Day")
+    await ctx.send(f"This bot was made by <@{user_id}> \n Thanks for using this Bot \n Have a Nice Day")
 @client.command()
 async def leave(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
