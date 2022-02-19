@@ -107,6 +107,7 @@ async def commands(ctx):
     
 @client.command()
 async def stats(ctx):
-   name = f"{len(client.guilds)} servers!"
+   count = f"{len(client.guilds)} servers!"
+   await ctx.send(count)
    
 client.run(os.environ['token'])
