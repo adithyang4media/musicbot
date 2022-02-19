@@ -8,7 +8,7 @@ client = commands.Bot(command_prefix='!')
 @client.event
 async def on_ready():
     print("Bot is now up")
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Youtube")
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Youtube"))
 
 @client.command()
 async def play(ctx, url_: str):
