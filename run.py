@@ -13,7 +13,8 @@ async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Youtube"))
 
 @client.command()
-async def play(ctx, *url_: str):
+async def play(ctx, url_1 = None, url_2 = None, url_3 = None, url_4 = None, url_5 = None, url_6 = None, url_7 = None, url_8 = None, url_9 = None, url_10 = None, url_11 = None):
+    url_=str(url_1)+" "+str(url_2)+" "+str(url_3)+" "+str(url_4)+" "+str(url_5)+" "+str(url_6)+" "+str(url_7)+" "+str(url_8)+" "+str(url_9)+" "+str(url_10)+" "+str(url_11)
     song_there = os.path.isfile("song.mp3")
     try:
         if song_there:
@@ -30,7 +31,9 @@ async def play(ctx, *url_: str):
         print("Url Detected")
     else:
         print("Not Found")
+        url_ = url_.replace("None", "")
         await ctx.send("Searching For " + url_)
+        
         url_ = url_.replace(" ", "+")
         html = urllib.request.urlopen("https://www.youtube.com/results?search_query=" + url_)
         video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
