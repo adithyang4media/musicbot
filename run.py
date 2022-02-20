@@ -3,6 +3,8 @@ from discord.ext import commands
 import youtube_dl
 import os
 from pytube import YouTube
+import urllib.request
+import re
 client = commands.Bot(command_prefix='!')
 
 @client.event
@@ -24,7 +26,15 @@ async def play(ctx, url_: str):
     filen = str(voiceChannel.id)
     filename = filen + ".mp3"
     fln = filen + ".mp3"
-    
+    if "https://youtu" in url_:
+        print("Url Detected")
+    else:
+        print("Not Found")
+        url_ = url_.replace(" ", "+")
+        html = urllib.request.urlopen("https://www.youtube.com/results?search_query=" + url_)
+        video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
+        print("https://www.youtube.com/watch?v=" + video_ids[0])
+        url_ = "https://www.youtube.com/watch?v=" + video_ids[0]
     
     
     
