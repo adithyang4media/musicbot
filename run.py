@@ -13,8 +13,7 @@ async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Youtube"))
 
 @client.command()
-async def play(ctx, url_1: str, url_2: str, url_3: str, url_4: str, url_5: str, url_6: str, url_7: str, url_8: str, url_9: str, url_10: str, url_11: str):
-    url_=url_1+" "+url_2+" "+url_3+" "+url_4+" "+url_4+" "+url_5+" "+url_6+" "+url_7+" "+url_8+" "+url_9+" "+url_10+" "+url_11
+async def play(ctx, *url_: str):
     song_there = os.path.isfile("song.mp3")
     try:
         if song_there:
