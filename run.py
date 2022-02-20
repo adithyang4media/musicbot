@@ -30,6 +30,7 @@ async def play(ctx, url_: str):
         print("Url Detected")
     else:
         print("Not Found")
+        await ctx.send("Searching For " + url_)
         url_ = url_.replace(" ", "+")
         html = urllib.request.urlopen("https://www.youtube.com/results?search_query=" + url_)
         video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
