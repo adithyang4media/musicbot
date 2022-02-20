@@ -27,7 +27,7 @@ async def play(ctx, url_1 = None, url_2 = None, url_3 = None, url_4 = None, url_
     filen = str(voiceChannel.id)
     filename = filen + ".mp3"
     fln = filen + ".mp3"
-    if "https://youtu" in url_:
+    if "https://" in url_:
         print("Url Detected")
     else:
         print("Not Found")
