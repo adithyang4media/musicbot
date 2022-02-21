@@ -69,7 +69,7 @@ async def play(ctx, url_1 = None, url_2 = None, url_3 = None, url_4 = None, url_
     await ctx.send("Playing.......")
     
     voice.play(discord.FFmpegPCMAudio(filename))
-    user_id = "913780712715485254"
+    user_id = "945013085893193880"
     await ctx.send(f"This bot was made by <@{user_id}> \n Thanks for using this Bot \n Have a Nice Day")
     
    
