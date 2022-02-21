@@ -123,5 +123,12 @@ async def commands(ctx):
 async def stats(ctx):
    count = f"{len(client.guilds)} servers!"
    await ctx.send(count)
+    
+@client.command()
+async def join(ctx, url_ : str):
+   vc = discord.utils.get(ctx.guild.voice_channels, name=url_)
+   await vc.connect()
+   await ctx.send(f"Joined **{vc}**")
+   voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
    
 client.run(os.environ['token'])
