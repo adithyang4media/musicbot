@@ -130,5 +130,11 @@ async def join(ctx, url_ : str):
    await vc.connect()
    await ctx.send(f"Joined **{vc}**")
    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    
+    
+@client.command()
+async def join(ctx, url_ : str):
+   await ctx.send("Uploading")
+   await ctx.send(file=discord.File(filename))
    
 client.run(os.environ['token'])
