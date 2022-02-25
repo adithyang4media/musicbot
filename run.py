@@ -133,7 +133,7 @@ async def join(ctx, url_ : str):
     
     
 @client.command()
-async def join(ctx, url_ : str):
+async def save(ctx, url_ : str):
    await ctx.send("Uploading")
    await ctx.send(file=discord.File(filename))
    
