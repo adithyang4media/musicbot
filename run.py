@@ -25,6 +25,7 @@ async def play(ctx, url_1 = None, url_2 = None, url_3 = None, url_4 = None, url_
    
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='Music')
     filen = str(voiceChannel.id)
+    global filename
     filename = filen + ".mp3"
     fln = filen + ".mp3"
     if "https://" in url_:
@@ -133,7 +134,7 @@ async def join(ctx, url_ : str):
     
     
 @client.command()
-async def save(ctx, url_ : str):
+async def save(ctx):
    await ctx.send("Uploading")
    await ctx.send(file=discord.File(filename))
    
