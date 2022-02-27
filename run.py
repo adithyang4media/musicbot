@@ -22,8 +22,10 @@ async def play(ctx, url_1 = None, url_2 = None, url_3 = None, url_4 = None, url_
     except PermissionError:
         await ctx.send("Wait for the audio to stop or use !stop command")
         return
-   
-    voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='Music')
+    if vc == None:
+        global vc
+        vc = 'Music'
+    voiceChannel = discord.utils.get(ctx.guild.voice_channels, name=vc)
     filen = str(voiceChannel.id)
     global filename
     filename = filen + ".mp3"
@@ -127,6 +129,7 @@ async def stats(ctx):
     
 @client.command()
 async def join(ctx, url_ : str):
+   global vc
    vc = discord.utils.get(ctx.guild.voice_channels, name=url_)
    await vc.connect()
    await ctx.send(f"Joined **{vc}**")
