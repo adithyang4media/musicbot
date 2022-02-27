@@ -8,6 +8,7 @@ import re
 client = commands.Bot(command_prefix='!')
 
 global vc
+vc = 'Music'
 
 @client.event
 async def on_ready():
@@ -24,9 +25,7 @@ async def play(ctx, url_1 = None, url_2 = None, url_3 = None, url_4 = None, url_
     except PermissionError:
         await ctx.send("Wait for the audio to stop or use !stop command")
         return
-    if vc == None:
-        
-        vc = 'Music'
+    
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name=vc)
     filen = str(voiceChannel.id)
     global filename
