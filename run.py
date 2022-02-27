@@ -27,7 +27,7 @@ async def play(ctx, url_1 = None, url_2 = None, url_3 = None, url_4 = None, url_
         return
     
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name=vc)
-    filen = str(voiceChannel.id)
+    filen = str(ctx.message.guild.id)
     global filename
     filename = filen + ".mp3"
     fln = filen + ".mp3"
