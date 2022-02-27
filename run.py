@@ -7,6 +7,8 @@ import urllib.request
 import re
 client = commands.Bot(command_prefix='!')
 
+global vc
+
 @client.event
 async def on_ready():
     print("Bot is now up")
@@ -23,7 +25,7 @@ async def play(ctx, url_1 = None, url_2 = None, url_3 = None, url_4 = None, url_
         await ctx.send("Wait for the audio to stop or use !stop command")
         return
     if vc == None:
-        global vc
+        
         vc = 'Music'
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name=vc)
     filen = str(voiceChannel.id)
@@ -129,7 +131,6 @@ async def stats(ctx):
     
 @client.command()
 async def join(ctx, url_ : str):
-   global vc
    vc = discord.utils.get(ctx.guild.voice_channels, name=url_)
    await vc.connect()
    await ctx.send(f"Joined **{vc}**")
