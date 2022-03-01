@@ -112,7 +112,7 @@ async def stop(ctx):
 @client.command()
 async def replay(ctx):
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='Music')
-    filen = str(voiceChannel.id)
+    filen = str(ctx.message.guild.id)
     filename = filen + ".mp3"
     fln = filen + ".mp3"
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
