@@ -63,7 +63,7 @@ async def play(ctx, url_1 = None, url_2 = None, url_3 = None, url_4 = None, url_
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
 
     if not voice.is_playing():
-        with YoutubeDL(ydl_opts) as ydl:
+        with youtubedl(ydl_opts) as ydl:
             info = ydl.extract_info(url_, download=False)
         URL = info['formats'][0]['url']
         voice.play(FFmpegPCMAudio(URL, **FFMPEG_OPTIONS))
